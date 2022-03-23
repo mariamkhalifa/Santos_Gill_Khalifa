@@ -3,6 +3,7 @@
 PLANTRACK APPLICATION
 
 About
+
 An Arduino microcontroller, moisture sensor, temp sensor, light sensor, Weather API and the Johnny-Five Library.
 Data outputted from the sensor is read in and charted on a page using charts.js.
 
