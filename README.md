@@ -20,5 +20,7 @@ Tinkercad (Arduino), mongoDB, nodejs, Johnny-five library, charts and Weather AP
 Collaborators:
 
 Mariam Kahilfa
+
 Shubhkarman Gill
+
 Geraldine Santos
