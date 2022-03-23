@@ -1,30 +1,9 @@
 <template>
     <main>
         <nav-menu></nav-menu>
-         <p class="heading">Your daily sensor information</p>
-        <div class="sensorCon">
-            <div id="light" class="sensor">
-                <img src="/static/sunicon.svg" alt="lightIcon">
-                <p class="subHeading">Light</p>
-                <div class="infoCon" id="lightSensor">
-                    <p>Sensor info here</p>
-                </div>
-            </div>
-            <div id="temperature" class="sensor">
-                <img src="/static/tempicon.svg" alt="tempIcon">
-                <p class="subHeading">Temperature</p>
-                <div class="infoCon" id="tempSensor">
-                    <p>Sensor info here</p>
-                </div>
-            </div>
-            <div id="moisture" class="sensor">
-                <img src="/static/moistureicon.svg" alt="moistureIcon">
-                <p class="subHeading">Moisture</p>
-                <div class="infoCon" id="moistureSensor">
-                    <p>Sensor info here</p>
-                </div>
-            </div>
-        </div>
+        <p class="heading">Your daily sensor information</p>
+        
+        <sensors-comp></sensors-comp>
 
         <div class="graphCon">
             <p class="heading graphHeading">Graph</p>
@@ -37,8 +16,9 @@
 
 <script>
 import NavMenu from "../components/navmenu.vue";
+import SensorsComp from '../components/sensorsComp.vue';
 export default {
-    components: {NavMenu}
+    components: {NavMenu, SensorsComp}
 }
 </script>
 
