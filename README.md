@@ -16,7 +16,7 @@ Key Goals:
 
 Technologies Used:
 
-Tinkercad (Arduino), mongoDB, nodejs, Johnny-five library, charts and Weather API.
+mongoDB, nodejs, Johnny-five library, charts and Weather API.
 
 Collaborators:
 
