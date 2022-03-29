@@ -5,6 +5,7 @@ import Router from "vue-router";
 import HomeView from "./views/home-view.vue";
 import LoginView from "./views/login-view.vue";
 import RegisterView from "./views/register-view.vue";
+import WeatherView from "./views/weather-view.vue";
 
 Vue.use(Router);
 
@@ -17,6 +18,10 @@ export default new Router({
     {
       path: "/home",
       component: HomeView
+    },
+    {
+      path: "/weather",
+      component: WeatherView
     },
     {
       path: "/login",
