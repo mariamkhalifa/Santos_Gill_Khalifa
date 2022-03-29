@@ -1,3 +1,6 @@
+/*
+ added gotham family as default font. By Gee
+*/
 @font-face {
 	font-family: 'Gotham Light';
 	src: url(./fonts/Gotham-Light.otf); }
