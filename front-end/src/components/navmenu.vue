@@ -16,10 +16,13 @@ export default {
 
 <style lang="scss">
     #TopMenu{
-        margin-top: 30px;
+        margin-top: 20px;
         margin-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 100px;
+        margin-right: 100px;
+        background: #fff;
+        padding: 10px;
+        margin: 0;
     }
 
     #logoSVG{
@@ -46,10 +49,10 @@ export default {
 
     @media screen and (min-width: 1024px){
         #TopMenu{
-            margin-top: 20px;
-            margin-bottom: 20px;
-            margin-left: 100px;
-            margin-right: 100px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
         }
 
         .logo{

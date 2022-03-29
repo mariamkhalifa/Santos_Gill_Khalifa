@@ -1,6 +1,7 @@
 <template>
     <main>
         <nav-menu></nav-menu>
+        <div class="straign-green-line"></div>
         <p class="heading">Your daily sensor information</p>
         
         <sensors-comp></sensors-comp>
@@ -38,6 +39,12 @@ export default {
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
+    }
+    .straign-green-line {
+        display: block;
+        width: 100%;
+        padding: 10px 0px;
+        background : #638D21;
     }
 
     .heading{

@@ -38,9 +38,6 @@
       "eslint:recommended",
       "@vue/prettier"
     ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
     "rules": {}
   },
   "browserslist": [
