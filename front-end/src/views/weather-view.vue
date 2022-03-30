@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <div>
         <nav-menu></nav-menu>
         <div class="straign-green-line"></div>
         <div class="weather-container">
@@ -39,7 +39,7 @@
                 <weather-comp v-if="weathers" :weathers="weathers"></weather-comp>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <script>

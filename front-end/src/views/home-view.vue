@@ -7,9 +7,11 @@
         <sensors-comp></sensors-comp>
 
         <div class="graphCon">
-            <p class="heading graphHeading">Graph</p>
+            <p class="heading graphHeading">Plant Stats</p>
+            <p>You plant stats over time</p>
+            <graph-comp></graph-comp>
             <div id="graph" class="infoCon graphBox">
-                <p>Sensor Graph here</p>
+                
             </div>
         </div>
     </main>
@@ -18,8 +20,13 @@
 <script>
 import NavMenu from "../components/navmenu.vue";
 import SensorsComp from '../components/sensorsComp.vue';
+import GraphComp from '../components/graphComp.vue';
 export default {
-    components: {NavMenu, SensorsComp}
+    components: {
+        NavMenu, 
+        SensorsComp,
+        GraphComp
+    }
 }
 </script>
 
