@@ -22,7 +22,7 @@
                 <img src="/static/tempicon.svg" alt="temprature icon">
                 <p class="subHeading">Temprature</p>
                 <div class="infoCon" id="tempSensor">
-                    <canvas ref="tempChart" class="rotated"></canvas>
+                    <canvas ref="tempChart"></canvas>
                     <p>{{ tempSensor }}</p>
                     <p>{{ tempMessage }}</p>
                 </div>
@@ -66,7 +66,7 @@ export default {
                 labels: ['light'],
                 datasets: [{
                     label: ['sensor', 'max'],
-                    data: [ this.lightSensor , '900' ],
+                    data: [ this.lightSensor , 900-this.lightSensor ],
                     backgroundColor: ['#97469B', '#ccc']
                 }],
             },
@@ -89,7 +89,7 @@ export default {
                 labels: ['moisture'],
                 datasets: [{
                     label: ['sensor', 'max'],
-                    data: [ this.moistSensor , '100' ],
+                    data: [ this.moistSensor , 1000-this.moistSensor ],
                     backgroundColor: ['#97469B', '#ccc']
                 }],
             },
@@ -106,15 +106,13 @@ export default {
         // temprature chart
         let tempChart = this.$refs.tempChart.getContext('2d');
 
-        let tempNum = this.tempSensor.slice(0,2);
-
         new Chart(tempChart, {
-            type: 'horizontalBar',
+            type: 'doughnut',
             data: {
                 labels: ['temprature'],
                 datasets: [{
-                    label: ['sensor'],
-                    data: [ tempNum ],
+                    label: ['sensor', 'max'],
+                    data: [ this.tempNum, 200-this.tempNum ],
                     backgroundColor: ['#97469B', '#ccc']
                 }],
             },
@@ -140,21 +138,54 @@ export default {
         // moist sensor messages
         if(this.moistSensor < 40) {
             this.moistMessage = 'Too dry. Your plant needs more water.';
-        } else if(this.moistSensor < 300) {
+        } else if(this.moistSensor < 500) {
             this.moistMessage = 'Just right. Your plant is happy';
         } else {
             this.moistMessage = 'Too moist. Your plant needs less water.';
         };
 
         // temp sensor messages
-        if(this.tempSensor < 60) {
+        if(this.tempNum < 60) {
             this.tempMessage = 'Too cold. Move your plant somehwere warmer.';
-        } else if(this.tempSensor < 90) {
+        } else if(this.tempNum < 90) {
             this.tempMessage = 'Just right. Your plant is happy';
         } else {
             this.tempMessage = 'Too hot. Move your plant somewhere cooler.';
         };
     },
+
+    updated() {
+        setTimeout(() => {
+            fetch(`http://localhost:3002/light-value/${this.lightSensor}`, {
+                method: 'POST'
+            })
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+            .catch(err=>console.log(err));
+
+            fetch(`http://localhost:3002/moist-value/${this.moistSensor}`, {
+                method: 'POST'
+            })
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+            .catch(err=>console.log(err));
+
+            fetch(`http://localhost:3002/temp-value/${this.tempSensor}`, {
+                method: 'POST'
+            })
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+            .catch(err=>console.log(err));
+        }, 10000);
+        
+    },
+
+    computed: {
+        tempNum() {
+            return this.tempSensor.slice(0,2);
+        }
+    },
+
 
     data() {
         return {

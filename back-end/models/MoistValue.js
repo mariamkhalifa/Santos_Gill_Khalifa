@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var MoistValueSchema = new mongoose.Schema({
-    value: Number
-})
+    entry: Number
+}, { timestamps: true });
 
 module.exports = mongoose.model('MoistValue', MoistValueSchema)
