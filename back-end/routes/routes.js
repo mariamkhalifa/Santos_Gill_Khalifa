@@ -3,22 +3,34 @@ var path = require('path'); //had to add
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Student = require('../models/Student.js')
+var LightValue = require('../models/LightValue.js')
+var MoistValue = require('../models/MoistValue.js')
+var TempValue = require('../models/TempValue.js')
 
-//Routes api/students, api/student/:id
-
-router.get('/api/students', function(req, res, next){
-    Student.find(function(err,students){
-        if(err) return next(err, students);
-        res.json(students);
-    })
+router.post('/light-value/:entry', function(req, res, next) {
+    console.log(req.params.entry);
+    LightValue.create({ entry: req.params.entry }, function(err, post) {
+        if (err) return next(err);
+        res.json(post);
+    });
 });
 
-router.get('/api/student/:id', function(req,res,next){
-    Student.findById(req.params.id, function(err, student){
-        if(err) return next(err);
-        res.json(student);
-    })
+router.post('/moist-value/:entry', function(req, res, next) {
+    console.log(req.params.entry);
+    MoistValue.create({ entry: req.params.entry }, function(err, post) {
+        if (err) return next(err);
+        res.json(post);
+    });
 });
+
+router.post('/temp-value/:entry', function(req, res, next) {
+    console.log(req.params.entry);
+    TempValue.create({ entry: req.params.entry }, function(err, post) {
+        if (err) return next(err);
+        res.json(post);
+    });
+});
+
+
 
 module.exports = router;

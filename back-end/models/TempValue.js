@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var TempValueSchema = new mongoose.Schema({
-    value: String
-})
+    entry: String,
+}, { timestamps: true })
 
 module.exports = mongoose.model('TempValue', TempValueSchema)
