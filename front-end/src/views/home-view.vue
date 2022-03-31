@@ -10,9 +10,6 @@
             <p class="heading graphHeading">Plant Stats</p>
             <p>You plant stats over time</p>
             <graph-comp></graph-comp>
-            <div id="graph" class="infoCon graphBox">
-                
-            </div>
         </div>
     </main>
 </template>
@@ -93,7 +90,6 @@ export default {
         align-items: center;
         flex-direction: column;
         height: 60vh;
-        background: url('/static/graphbg.png') no-repeat right center;
         border-top: 6px solid #638D21;        
         background-size: cover;
     }

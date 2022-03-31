@@ -63,7 +63,7 @@ export default {
         new Chart(lightChart, {
             type: 'doughnut',
             data: {
-                labels: ['light'],
+                labels: ['light', 'max'],
                 datasets: [{
                     label: ['sensor', 'max'],
                     data: [ this.lightSensor , 900-this.lightSensor ],
@@ -86,7 +86,7 @@ export default {
         new Chart(moistChart, {
             type: 'doughnut',
             data: {
-                labels: ['moisture'],
+                labels: ['moisture', 'max'],
                 datasets: [{
                     label: ['sensor', 'max'],
                     data: [ this.moistSensor , 1000-this.moistSensor ],
@@ -109,7 +109,7 @@ export default {
         new Chart(tempChart, {
             type: 'doughnut',
             data: {
-                labels: ['temprature'],
+                labels: ['temprature', 'max'],
                 datasets: [{
                     label: ['sensor', 'max'],
                     data: [ this.tempNum, 200-this.tempNum ],
@@ -201,7 +201,5 @@ export default {
 </script>
 
 <style lang="scss">
-    .rotated {
-        transform: rotate(270deg);
-    }
+    
 </style>
