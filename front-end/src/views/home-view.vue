@@ -7,10 +7,9 @@
         <sensors-comp></sensors-comp>
 
         <div class="graphCon">
-            <p class="heading graphHeading">Graph</p>
-            <div id="graph" class="infoCon graphBox">
-                <p>Sensor Graph here</p>
-            </div>
+            <p class="heading graphHeading">Plant Stats</p>
+            <p>You plant stats over time</p>
+            <graph-comp></graph-comp>
         </div>
     </main>
 </template>
@@ -18,8 +17,13 @@
 <script>
 import NavMenu from "../components/navmenu.vue";
 import SensorsComp from '../components/sensorsComp.vue';
+import GraphComp from '../components/graphComp.vue';
 export default {
-    components: {NavMenu, SensorsComp}
+    components: {
+        NavMenu, 
+        SensorsComp,
+        GraphComp
+    }
 }
 </script>
 
@@ -86,7 +90,6 @@ export default {
         align-items: center;
         flex-direction: column;
         height: 60vh;
-        background: url('/static/graphbg.png') no-repeat right center;
         border-top: 6px solid #638D21;        
         background-size: cover;
     }
