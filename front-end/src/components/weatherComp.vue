@@ -1,16 +1,35 @@
 <template>
     <div class="weather-footer-container">
-        <div class="items">
-            <div class="day">{{ weathers.forecast.forecastday[1].date }}</div>
-            <img :src="weathers.forecast.forecastday[1].day.condition.icon" width="80px" alt="" />
-            <div class="temp">{{ weathers.forecast.forecastday[1].day.maxtemp_c }}&deg;</div>
-        </div>
-        <hr class="bottom-line" />
-        <div class="items">
-            <div class="day">{{ weathers.forecast.forecastday[2].date }}</div>
-            <img :src="weathers.forecast.forecastday[2].day.condition.icon" width="80px" alt="" />
-            <div class="temp">{{ weathers.forecast.forecastday[2].day.maxtemp_c }}&deg;</div>
-        </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="weather-text">
+                        <div class="row">
+                            <div class="col-7">
+                                <img :src="weathers.current.condition.icon" width="80px" alt="" class="current-image">
+                                <h2 class="weather-city">Today</h2>
+                                <div class="sub">&nbsp;</div>
+                            </div>
+                            <div class="col-5">
+                                <div class="main">{{ weathers.current.temp_c }}&deg;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-current">
+                <div class="row">
+                    <div class="col-12">
+                        <img :src="weathers.current.condition.icon" width="80px" alt="" class="mobile-current-image">
+                        <h2 class="mobile-weather-city">Today</h2>
+                        <div class="mobile-sub">&nbsp;</div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-temp">
+                            {{ weathers.current.temp_c }}&deg;
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
 </template>
 
