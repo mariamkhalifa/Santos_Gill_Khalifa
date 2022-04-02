@@ -1,16 +1,32 @@
 <template>
-    <nav id="TopMenu">
+    <header>
         <div id="logoSVG">
             <img src="/static/logo.svg" class="logo">
-            <i class="material-icons">clear_all</i>
         </div>
-        <div id="MenuLinks"></div>
-    </nav>
+        <nav id="TopMenu">
+            <i class="material-icons" :class="{ rotated : isActive }" @click="toggleNav">clear_all</i>
+            <ul id="menuLinks" :class="{ visible : isActive }">
+                <router-link to="/resgister">Register</router-link>
+                <router-link to="/home">Dashboard</router-link>
+                <router-link to="/logout">Logout</router-link>
+            </ul>
+        </nav>
+    </header>
 </template>
 
 <script>
 export default {
-    
+    data() {
+        return {
+            isActive: false
+        } 
+    },
+
+    methods: {
+        toggleNav() {
+            this.isActive = this.isActive ? false : true;
+        }
+    }
 }
 </script>
 
@@ -39,6 +55,18 @@ export default {
     .logo{
         height: 30px;
         width: auto;
+    }
+
+    .rotated {
+        transform: rotate(90deg);
+    }
+
+    #menuLinks {
+        display: none;
+    }
+
+    #menuLinks.visible {
+        display: flex;
     }
 
     @media screen and (min-width: 768px){
