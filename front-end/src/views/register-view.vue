@@ -1,6 +1,7 @@
 <template>
     <div>
         <nav-menu></nav-menu>
+        <div class="green-line"></div>
         <div id="formCon">
             <input type="text" placeholder="Email" class="field">
             <input type="password" placeholder="Password" class="field password">
@@ -25,6 +26,13 @@ export default {
 
 <style lang="scss">
 @import './../assets/sass/vars.scss';
+
+    .green-line {
+        display: block;
+        width: 100%;
+        height: 20px;
+        background: $magenta;
+    }
 
     .password{
         margin-bottom: 20px;
