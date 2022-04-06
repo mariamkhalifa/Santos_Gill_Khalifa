@@ -23,7 +23,10 @@
                 <p class="subHeading">Temprature</p>
                 <div class="infoCon" id="tempSensor">
                     <p class="sensorMessage">{{ tempMessage }}</p>
-                    <canvas class="chart" ref="tempChart"></canvas>
+                    <!-- <canvas class="chart" ref="tempChart"></canvas> -->
+                    <div id="thermometer">
+                        <div id="thermBg" ref="thermBg"></div>
+                    </div>
                     <p class="sensorData">{{ tempSensor }}</p>
                 </div>
             </div>
@@ -98,33 +101,37 @@ export default {
                     display: false
                 },
                 label: {
-                    enabled:false
+                    enabled: false
                 }
             }
         });
 
         // temprature chart
-        let tempChart = this.$refs.tempChart.getContext('2d');
+        // let tempChart = this.$refs.tempChart.getContext('2d');
 
-        new Chart(tempChart, {
-            type: 'doughnut',
-            data: {
-                labels: ['temprature', 'max'],
-                datasets: [{
-                    label: ['sensor', 'max'],
-                    data: [ this.tempNum, 200-this.tempNum ],
-                    backgroundColor: ['#97469B', '#ccc']
-                }],
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                labels: {
-                    enabled:false
-                }
-            }
-        });
+        // new Chart(tempChart, {
+        //     type: 'doughnut',
+        //     data: {
+        //         labels: ['temprature', 'max'],
+        //         datasets: [{
+        //             label: ['sensor', 'max'],
+        //             data: [ this.tempNum, 200-this.tempNum ],
+        //             backgroundColor: ['#97469B', '#ccc']
+        //         }],
+        //     },
+        //     options: {
+        //         legend: {
+        //             display: false
+        //         },
+        //         labels: {
+        //             enabled: false
+        //         }
+        //     }
+        // });
+
+        // thermometer
+        let thermBg = this.$refs.thermBg;
+        thermBg.style.height = `${this.tempNum}px`;
 
         // light sensor messages
         if(this.lightSensor < 40) {
@@ -201,82 +208,77 @@ export default {
 </script>
 
 <style lang="scss">
+@import './../assets/sass/vars.scss';
+
      .sensorCon{
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        flex-direction: column;
+        margin-top: 60px;
+        gap: 10%;
     }
 
-    .sensor{
-        width: 50vh;
-        margin-bottom: 20px;
+    .sensor {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
         margin-bottom: 20px;
-        border-bottom: 1px solid rgb(209, 209, 209);
     }
 
     .sensor img{
         margin-top: 10px;
-        height: 40px;
+        width: 80px;
     }
 
     .infoCon{
-        background: #F7F7F7;
-        width: 50vh;
-        height: 40vh;
+        box-shadow: 2px 2px 8px rgba($color: #000000, $alpha: .1);
+        width: 300px;
+        height: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: rgb(206, 206, 206);
-        border-radius: 25px;
+        border-radius: 20px;
+        padding: 40px 20px;
         margin-bottom: 30px;
     }
 
+    .chart {
+        width: 100%;
+    }
+
     .sensorData{
-        font-size: 20px;
-        margin-top: 20px;
-        color: #638D21;
+        font-size: 30px;
+        margin-top: 40px;
+        color: $magenta;
         font-weight: 700;
     }
 
     .sensorMessage{
-        font-size: 16px;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        font-size: 18px;
+        margin: 0 0 30px 0;
+        color: $magenta;
     }
 
-    @media screen  and (min-width: 768px){
-        .sensor{
-            width: 70vw;
+    #thermometer {
+        height: 138px;
+        width: 50px;
+        border: 4px solid #ccc;
+        position: relative;
+        border-radius: 28px;
+
+        #thermBg {
+            background-color: $magenta;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            border-bottom-right-radius: 25px;
+            border-bottom-left-radius: 25px;
         }
     }
 
-    @media screen and (min-width: 1024px){
-        .sensorCon{
-            display: grid; 
-            grid-template-columns: 1fr 1fr 1fr; 
-            gap: 10px 10px;
-        }
-
-        .sensor{
-            border-bottom: 0px;
-            width: auto;
-        }
-
-        .infoCon p{
-            font-size: 22px;
-            color: #638D21;
-        }
-
-
-
-    }
     
 </style>
 

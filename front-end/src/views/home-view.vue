@@ -1,8 +1,8 @@
 <template>
     <main>
         <nav-menu></nav-menu>
-        <div class="straign-green-line"></div>
-        <p class="heading">Your daily sensor information</p>
+        <div class="green-line"></div>
+        <p class="heading">Your Daily Sensor Information</p>
         
         <sensors-comp></sensors-comp>
 
@@ -10,6 +10,7 @@
             <p class="heading graphHeading">Plant Stats</p>
             <graph-comp></graph-comp>
         </div>
+
         <div class="weatherCon">
             <weather-comp v-if="weathers" :weathers="weathers"></weather-comp>
         </div>
@@ -43,29 +44,31 @@ export default {
 }
 </script>
 
-<style lang="scss">  
-    .straign-green-line {
+<style lang="scss">
+@import './../assets/sass/vars.scss';
+
+    .green-line {
         display: block;
         width: 100%;
-        padding: 8px 0px;
-        background : #638D21;
+        height: 18px;
+        background: $green;
     }
 
     .heading{
-        font-size: 22px;
-        font-weight: 600;
-        color: #638D21;
+        font-size: 26px;
+        font-weight: 700;
+        color: $green;
         margin-bottom: 20px;
         margin-top: 40px;
         text-align: center;
     }
 
     .subHeading{
-        margin-top: 10px;
-        font-size: 16px;
+        margin-top: 20px;
+        font-size: 20px;
         font-weight: 700;
-        color: rgb(197, 197, 197);
-        margin-bottom: 10px;
+        color: $green;
+        margin-bottom: 30px;
     }
 
     .graphCon{
@@ -73,17 +76,13 @@ export default {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        border-top: 6px solid #638D21;        
-        background-size: cover;
+        border-top: 6px solid $green;
+        padding: 40px;
     }
 
     .graphHeading{
-        color: #638D21;
+        color: $green;
         margin-bottom: 0px;
-    }
-
-    .graphBox{
-        border: 6px solid #638D21;
     }
 
         
@@ -92,32 +91,11 @@ export default {
             font-size: 32px;
         }
 
-        .sensor{
-            margin-bottom: 10px;
-        }
-
-        .sensor img{
-            margin-top: 26px;
-            height: 84px;
-        }
-
-        .subHeading{
-            margin-top: 16px;
-            font-size: 28px;
-            font-weight: 700;
-        }
-
-        .infoCon{
-            margin-top: 28px;
-            width: 60vh;
-            height: 50vh;
-        }
-
         .graphCon{
             margin-top: 60px;
             margin-bottom: 60px;
-            height: 65vh;
         }
+
         .weather-text {
             display: none;
         }
@@ -125,24 +103,13 @@ export default {
 
     @media screen  and (min-width: 1024px){
         .heading{
-            margin-top: 20px;
+            margin-top: 60px;
             margin-left: 100px;
             margin-right: 100px;
-            font-weight: 400;
             font-size: 24px;
-        }
-
-        .sensor img{
-            height: 52px;
-        }
-        
-        .subHeading{
-            font-size: 24px;
-            font-weight: 400;
         }
 
         .graphCon{
-            height: 80vh;
             margin-bottom: 0px;
         }
 
@@ -151,8 +118,5 @@ export default {
             font-weight: 700;
         }
 
-        .graphBox{
-            width: 70vh;
-        }
     }
 </style>
