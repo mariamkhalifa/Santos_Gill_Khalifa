@@ -11,9 +11,7 @@
             <graph-comp></graph-comp>
         </div>
 
-        <div class="weatherCon">
-            <weather-comp v-if="weathers" :weathers="weathers"></weather-comp>
-        </div>
+        <weather-comp v-if="weathers" :weathers="weathers"></weather-comp>
     </main>
 </template>
 
@@ -50,8 +48,8 @@ export default {
     .green-line {
         display: block;
         width: 100%;
-        height: 18px;
-        background: $green;
+        height: 20px;
+        background: $magenta;
     }
 
     .heading{
@@ -59,7 +57,7 @@ export default {
         font-weight: 700;
         color: $green;
         margin-bottom: 20px;
-        margin-top: 40px;
+        margin-top: 60px;
         text-align: center;
     }
 
@@ -71,52 +69,39 @@ export default {
         margin-bottom: 30px;
     }
 
-    .graphCon{
+    .graphCon {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        border-top: 6px solid $green;
-        padding: 40px;
+        //border-top: 1px solid #ccc;
+        //padding: 40px;
+        margin-top: 80px;
     }
 
-    .graphHeading{
+    .graphHeading {
         color: $green;
         margin-bottom: 0px;
     }
 
         
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 768px) {
         .heading{
             font-size: 32px;
-        }
-
-        .graphCon{
-            margin-top: 60px;
-            margin-bottom: 60px;
-        }
-
-        .weather-text {
-            display: none;
         }
     }
 
     @media screen  and (min-width: 1024px){
         .heading{
-            margin-top: 60px;
+            margin-top: 100px;
             margin-left: 100px;
             margin-right: 100px;
             font-size: 24px;
-        }
-
-        .graphCon{
-            margin-bottom: 0px;
         }
 
         .graphHeading{
             font-size: 28px;
             font-weight: 700;
         }
-
     }
 </style>
