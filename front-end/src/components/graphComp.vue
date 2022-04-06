@@ -1,7 +1,7 @@
 <template>
     <div class="lineChartCon">
-        <p>Your Plant's Health Everyday</p>
-        <p>{{ today }}</p>
+        <p class="subHeading">Your Plant's Health Everyday</p>
+        <p class="weather">{{ today }}</p>
         <div><canvas ref="timeChart"></canvas></div>
     </div>
 </template>
@@ -115,10 +115,18 @@ export default {
         flex-direction: column;
         align-items: center;
         width: 100%;
-
-        canvas {
-            width: 60vw;
-        }
     }
+
+    .weather{
+        text-align: center;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    canvas {
+        width: 60vw;
+    }
+
+    
     
 </style>

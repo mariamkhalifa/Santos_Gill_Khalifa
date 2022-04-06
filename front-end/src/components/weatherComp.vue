@@ -1,35 +1,11 @@
 <template>
     <div class="weather-footer-container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="weather-text">
-                        <div class="row">
-                            <div class="col-7">
-                                <img :src="weathers.current.condition.icon" width="80px" alt="" class="current-image">
-                                <h2 class="weather-city">Today</h2>
-                                <div class="sub">&nbsp;</div>
-                            </div>
-                            <div class="col-5">
-                                <div class="main">{{ weathers.current.temp_c }}&deg;</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mobile-current">
-                <div class="row">
-                    <div class="col-12">
-                        <img :src="weathers.current.condition.icon" width="80px" alt="" class="mobile-current-image">
-                        <h2 class="mobile-weather-city">Today</h2>
-                        <div class="mobile-sub">&nbsp;</div>
-                    </div>
-                    <div class="col-12">
-                        <div class="mobile-temp">
-                            {{ weathers.current.temp_c }}&deg;
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
+        <img :src="weathers.current.condition.icon" class="current-image">
+        <h2 class="weather-city">Today</h2>
+        <div class="sub">&nbsp;</div>
+        <div class="main">{{ weathers.current.temp_c }}&deg;</div>
+
     </div>
 </template>
 
@@ -42,7 +18,70 @@ export default {
 </script>
 
 <style lang="scss">
-    .rotated {
-        transform: rotate(270deg);
+
+    .weather-footer-container {
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        flex-direction: column;
+        background: #8b4895;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .weather-footer-container:after {
+        content: "";
+        clear: both;
+    }
+
+    .weather-city{
+        color:white;
+    }
+
+    .main{
+        color: white;
+    }
+
+    .current-image{
+        height: 35px;
+    }
+
+    @media screen  and (min-width: 768px){
+        .weather-footer-container{
+            height: 200px;
+        }
+
+        .current-image{
+            height: 200px;
+        }
+
+        .weather-city{
+            font-size: 44px;
+        }
+
+        .main{
+            margin-top: 10px;
+            font-size: 44px;
+        }
+
+
+    }
+
+    @media screen  and (min-width: 1024px){
+        .weather-footer-container{
+            flex-direction: row;
+            height: 20vh;
+        }
+
+        .weather-city{
+            font-size: 32px;
+            padding: 15px;
+        }
+
+        .current-image{
+            height: 96px;
+        }
     }
 </style>
