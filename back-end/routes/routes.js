@@ -3,6 +3,10 @@ var path = require('path'); //had to add
 var router = express.Router();
 
 var mongoose = require('mongoose');
+
+// for SMS
+//var client = require('twilio')('AC004632a60192b5954dae171343ac1043', '06a0e833d7c89d7381f2faa242874f6a');
+
 var LightValue = require('../models/LightValue.js')
 var MoistValue = require('../models/MoistValue.js')
 var TempValue = require('../models/TempValue.js')
@@ -51,6 +55,34 @@ router.get('/temp-values', function(req, res, next) {
         res.json(values);
     });
 });
+
+//          ============ for SMS route ===================
+
+// router.post('/send-message', function (req, res, next) {
+//     let message = sendTextMessage(req.body.light, req.body.moisture, req.body.temp)
+//     res.json(message)
+// })
+
+//          =========== for SMS code =================
+
+// function sendTextMessage (light, moisture, temp) {
+//     let messageText;
+//     let messageString = `Your plant status for today. Light: ${light} Moisture: ${moisture} Temperature: ${temp}`
+//     client.messages.create({
+//         body: 'This is a test code',
+//         to: '', 
+//         from: '' 
+//     })
+//     .then(message => {
+//         console.log(message)
+//         messageText = message
+//     })
+//     .catch(error => {
+//         console.log(error)
+//     })
+
+//     return messageText
+// }
 
 
 
