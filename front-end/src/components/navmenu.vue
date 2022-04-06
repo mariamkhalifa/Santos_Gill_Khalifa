@@ -1,18 +1,16 @@
 <template>
-    <header>
-        <div id="NavCon">
+    <header id="NavCon">
         <div id="logoSVG">
             <img src="/static/logo.svg" class="logo">
         </div>
         <nav id="TopMenu">
-            <img src="/static/burger.svg" :class="{ rotated : isActive }" @click="toggleNav" alt="burgerSVG">
+            <img src="/static/burger.svg" :class="{ rotated : isActive }" @click="toggleNav" alt="burger icon">
             <ul id="menuLinks" :class="{ visible : isActive }">
                 <router-link to="/register">Register</router-link>
                 <router-link to="/home">Dashboard</router-link>
                 <router-link to="/logout">Logout</router-link>
             </ul>
         </nav>
-        </div>
     </header>
 </template>
 
@@ -33,12 +31,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import './../assets/sass/vars.scss';
+
     #NavCon{
+        margin: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-direction: row-reverse;
     }
+
     #TopMenu{
         margin-top: 20px;
         margin-bottom: 20px;
@@ -52,6 +54,16 @@ export default {
     #TopMenu img{
         height: 25px;
         width: auto;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+
+        &:hover {
+            transform: translateY(1px);
+        }
+    }
+
+    #TopMenu img.rotated{
+        transform: rotate(-90deg);
     }
 
     #logoSVG{
@@ -61,12 +73,8 @@ export default {
     }
 
     .logo{
-        height: 25px;
+        height: 28px;
         width: auto;
-    }
-
-    .rotated{
-        transform: rotate(-90deg);
     }
 
     #menuLinks {
@@ -74,9 +82,14 @@ export default {
     }
 
     #menuLinks a{
-        color: #638D21;
+        color: $green;
         text-decoration: none;
-        padding-top: 5px;
+        padding-top: 10px;
+        transition: all .5s ease-in;
+
+        &:hover {
+            color: $magenta;
+        }
     }
 
     #menuLinks.visible {
