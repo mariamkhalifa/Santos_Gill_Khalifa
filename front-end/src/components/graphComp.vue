@@ -1,8 +1,8 @@
 <template>
     <div class="lineChartCon">
-        <p class="subHeading">Your Plant's Health Everyday</p>
-        <p class="weather">{{ today }}</p>
-        <div><canvas ref="timeChart"></canvas></div>
+        <p class="subHeading">Your Plant's Health Today</p>
+        <p class="date">Today: {{ today }}</p>
+        <canvas ref="timeChart" id="lineChart"></canvas>
     </div>
 </template>
 
@@ -110,23 +110,25 @@ export default {
 </script>
 
 <style lang="scss">
+@import './../assets/sass/vars.scss';
+
     .lineChartCon {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
     }
 
-    .weather{
+    .date {
         text-align: center;
         font-size: 18px;
         margin-top: 20px;
+        margin-bottom: 40px;
+        font-size: 14px;
+        color: $grey;
     }
 
-    canvas {
-        width: 60vw;
+    #lineChart {
+        width: 80vw;
+        max-width: 1000px;
     }
-
-    
-    
 </style>
