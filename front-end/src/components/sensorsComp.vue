@@ -4,27 +4,27 @@
                 <img src="/static/sunicon.svg" alt="lightIcon">
                 <p class="subHeading">Light</p>
                 <div class="infoCon" id="lightSensor">
-                    <canvas ref="lightChart"></canvas>
-                    <p>{{ lightSensor }}</p>
-                    <p>{{ lightMessage }}</p>
+                    <p class="sensorMessage">{{ lightMessage }}</p>
+                    <canvas class="chart" ref="lightChart"></canvas>
+                    <p class="sensorData">{{ lightSensor }}</p>
                 </div>
             </div>
             <div id="moisture" class="sensor">
                 <img src="/static/moistureicon.svg" alt="mositure icon">
                 <p class="subHeading">Moisture</p>
                 <div class="infoCon" id="moistureSensor">
-                    <canvas ref="moistChart"></canvas>
-                    <p>{{ moistSensor }}</p>
-                    <p>{{ moistMessage }}</p>
+                    <p class="sensorMessage">{{ moistMessage }}</p>
+                    <canvas class="chart" ref="moistChart"></canvas>
+                    <p class="sensorData">{{ moistSensor }}</p>
                 </div>
             </div>
             <div id="temprature" class="sensor">
                 <img src="/static/tempicon.svg" alt="temprature icon">
                 <p class="subHeading">Temprature</p>
                 <div class="infoCon" id="tempSensor">
-                    <canvas ref="tempChart"></canvas>
-                    <p>{{ tempSensor }}</p>
-                    <p>{{ tempMessage }}</p>
+                    <p class="sensorMessage">{{ tempMessage }}</p>
+                    <canvas class="chart" ref="tempChart"></canvas>
+                    <p class="sensorData">{{ tempSensor }}</p>
                 </div>
             </div>
         </div>
@@ -201,5 +201,82 @@ export default {
 </script>
 
 <style lang="scss">
+     .sensorCon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .sensor{
+        width: 50vh;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgb(209, 209, 209);
+    }
+
+    .sensor img{
+        margin-top: 10px;
+        height: 40px;
+    }
+
+    .infoCon{
+        background: #F7F7F7;
+        width: 50vh;
+        height: 40vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: rgb(206, 206, 206);
+        border-radius: 25px;
+        margin-bottom: 30px;
+    }
+
+    .sensorData{
+        font-size: 20px;
+        margin-top: 20px;
+        color: #638D21;
+        font-weight: 700;
+    }
+
+    .sensorMessage{
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    @media screen  and (min-width: 768px){
+        .sensor{
+            width: 70vw;
+        }
+    }
+
+    @media screen and (min-width: 1024px){
+        .sensorCon{
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 10px 10px;
+        }
+
+        .sensor{
+            border-bottom: 0px;
+            width: auto;
+        }
+
+        .infoCon p{
+            font-size: 22px;
+            color: #638D21;
+        }
+
+
+
+    }
     
 </style>
+

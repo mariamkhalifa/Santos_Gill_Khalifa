@@ -1,16 +1,18 @@
 <template>
     <header>
+        <div id="NavCon">
         <div id="logoSVG">
             <img src="/static/logo.svg" class="logo">
         </div>
         <nav id="TopMenu">
-            <i class="material-icons" :class="{ rotated : isActive }" @click="toggleNav">clear_all</i>
+            <img src="/static/burger.svg" :class="{ rotated : isActive }" @click="toggleNav" alt="burgerSVG">
             <ul id="menuLinks" :class="{ visible : isActive }">
-                <router-link to="/resgister">Register</router-link>
+                <router-link to="/register">Register</router-link>
                 <router-link to="/home">Dashboard</router-link>
                 <router-link to="/logout">Logout</router-link>
             </ul>
         </nav>
+        </div>
     </header>
 </template>
 
@@ -31,6 +33,12 @@ export default {
 </script>
 
 <style lang="scss">
+    #NavCon{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
     #TopMenu{
         margin-top: 20px;
         margin-bottom: 20px;
@@ -41,32 +49,42 @@ export default {
         margin: 0;
     }
 
+    #TopMenu img{
+        height: 25px;
+        width: auto;
+    }
+
     #logoSVG{
         display: flex;
         justify-content: space-between;
         align-content: center;
     }
 
-    .material-icons{
-        font-size: 35px;
-        color: #638D21;
-    }
-
     .logo{
-        height: 30px;
+        height: 25px;
         width: auto;
     }
 
-    .rotated {
-        transform: rotate(90deg);
+    .rotated{
+        transform: rotate(-90deg);
     }
 
     #menuLinks {
         display: none;
     }
 
+    #menuLinks a{
+        color: #638D21;
+        text-decoration: none;
+        padding-top: 5px;
+    }
+
     #menuLinks.visible {
+        margin-top: 20px;
         display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     @media screen and (min-width: 768px){
@@ -79,8 +97,6 @@ export default {
         #TopMenu{
             padding-top: 20px;
             padding-bottom: 20px;
-            padding-left: 100px;
-            padding-right: 100px;
         }
 
         .logo{
